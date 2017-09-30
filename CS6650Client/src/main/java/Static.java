@@ -25,22 +25,23 @@ class Static {
     }
 
     long median(){
-        return get(0.5);
+        return getPercent(0.5);
     }
 
     long mean(){
         if(totalRequest ==0 ){
             return -1;
         }
-        if(isSorted == false){
-            sort();
-        }
         return totalLatency/totalRequest;
     }
 
-    long get(double percent){
+    long getPercent(double percent){
         if(latencyList.size() == 1){
             return latencyList.get(0);
+        }
+
+        if(isSorted == false){
+            sort();
         }
 
         double temp = percent * latencyList.size();

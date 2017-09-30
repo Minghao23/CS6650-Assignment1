@@ -43,10 +43,11 @@ public class MyClient {
         System.out.println("Total number of requests sent: " + statics.getSentRequestsNum());
         System.out.println("Total number of successful responses: " + statics.getSuccessRequestsNum());
         System.out.printf("Total wall time: %.2f seconds\n", (System.currentTimeMillis() - startTime) / 1000.0);
+
         System.out.printf("Mean latency is %.2f seconds\n", statics.mean() / 1000.0);
         System.out.printf("Median latency is %.2f seconds\n", statics.median() / 1000.0);
-        System.out.printf("99th percentile latency is %.2f seconds\n", statics.get(0.99) / 1000.0);
-        System.out.printf("95th percentile latency is %.2f seconds\n", statics.get(0.95) / 1000.0);
+        System.out.printf("99th percentile latency is %.2f seconds\n", statics.getPercent(0.99) / 1000.0);
+        System.out.printf("95th percentile latency is %.2f seconds\n", statics.getPercent(0.95) / 1000.0);
 
     }
 }
